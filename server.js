@@ -1,15 +1,16 @@
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
+const data = [];
 
 // Express to run server and routes
 const express = require('express');
 
 // Start up an instance of app
 const app = express();
-const bodyParser = require('body-parser')
 
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
+const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -23,11 +24,12 @@ app.use(express.static('website'));
 
 
 // Setup Server
-const port = 3300;
-const server = app.listen(port, callBackFunction);
+const port = 3310;
+
+app.listen(port, callBackFunction);
 
 function callBackFunction(){
-    console.log("Server is Running");
+    console.log(`Server is Running : http://localhost:${port}`);
 }
 
 // Routes Section
@@ -43,5 +45,5 @@ function sendData (request, response) {
 app.post('/PostWeather', add )
 
 function add (req,res){
-    projectData.push(req.body);
+    data.push(req.body);
 };
