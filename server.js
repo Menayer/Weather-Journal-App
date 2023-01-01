@@ -47,6 +47,5 @@ app.post('/', getWeather)
 
 function getWeather (req,res){
 
-function add (req,res){
     projectData.push(req.body);
 };

@@ -1,111 +1,54 @@
-body{
-    background: #fffff8;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-#app{
-    display: grid;
-    grid-auto-rows: minmax(150px, auto);
-    /* grid-template-columns:  */
+.weather__app{
+    display: flex;           
+    flex-direction: column;  
+    justify-content: center; 
+    align-items: center;     
     height:100vh;
-    background: #f23557;
-    color: #f0d43a;
-    justify-content: center;
-    grid-gap: 1em;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+    background-image:url('http://source.unsplash.com/random/?landscape');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:center;
 }
 
-.holder{
-
+.card{
+    background:rgba(0,0,0,.9);
+    color:white;
+    padding:2em;
+    border-radius:30px;
+    max-width:500px;
+    margin:1em;
 }
 
-.entry{
-    background: rgba(59, 74, 107, .4);
+.card__search{
+    display:flex;
+    flex-direction: column;  
+    align-items:center;
+    justify-content:center;
 }
 
-#entryHolder{
+.card__search__input{
+    border:none;
+    outline:none;
+    padding:0.7em;
+    border-radius:15px;
+    background:rgba(124, 124, 124, 0.17);
+    color:white;
+    font-size:120%;
+    margin:.5em;
 
 }
-
-#date{
-
+.generate{
+    margin:0.5em;
+    border-radius:5px;
+    border:none;
+    width:20em;
+    height:3em;
+    outline:none;
+    background:rgba(124, 124, 124, 0.3);
+    
+}
+.generate:hover{
+    background:rgba(124, 124, 124, 0.17);
+    
 }
 
-#temp{
-
-}
-
-#content{
-
-}
-
-.headline {
-
-}
-.title{
-
-}
-
-/*  Basic Styling To Override Default For Basic HTML Elements */
-label{
-    display:block;
-    font-size: 27px;
-}
-
-input{
-    display:block;
-    height: 60px;
-    width: 320px;
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-}
-
-button{
-    width: 400px;
-    height: 100px;
-    background: #3b4a6b;
-    color: #f0d43a;
-    font-size: 26px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-    box-shadow: 2px 4px 5px #444;
-}
-h1{
-    font-size: 36px;
-}
-
-textarea{
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-}
-/* Reset style for HTML element on active to have no border*/
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
-/* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
-  
-:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
-  
-::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
