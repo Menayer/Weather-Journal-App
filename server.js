@@ -1,6 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
-const data = [];
 
 // Express to run server and routes
 const express = require('express');
@@ -35,15 +34,19 @@ function callBackFunction(){
 // Routes Section
 
 // Get Route
-app.get('/GetWeather', sendData);
+app.get('/', sendData);
 
 function sendData (request, response) {
   response.send(projectData);
 };
 
+const data = [];
+
 // Post Route
-app.post('/PostWeather', add )
+app.post('/', getWeather)
+
+function getWeather (req,res){
 
 function add (req,res){
-    data.push(req.body);
+    projectData.push(req.body);
 };
