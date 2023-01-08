@@ -1,3 +1,6 @@
+*{
+    font-family: 'Lato', sans-serif;
+}
 .weather__app{
     display: flex;           
     flex-direction: column;  
@@ -55,4 +58,12 @@
 .generate__text{
     color:white;
     font-size:20px;
+}
+#map { height: 180px; }
+em{
+    color:#2692FF
+}
+
+input::placeholder {
+    font-size: 16px;
 }

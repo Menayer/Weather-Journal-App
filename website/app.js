@@ -4,11 +4,12 @@ const apiKey = "&appid=c53a1aac5d03808910b79fd36db6a826";
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = (d.getMonth()+1)+'.'+ d.getDate()+'.'+ d.getFullYear();
-
+let map = L.map('map');
 // Select UI Elements
 
 const zipCode = document.getElementById('zip');
 const feelings = document.getElementById('feelings');
+const warning = document.getElementById('warning');
 
 const dateElement = document.getElementById('date');
 const tempElement = document.getElementById('temp');
@@ -29,10 +30,12 @@ function onSubmit(e){
 function check(){
     
     if (zipCode.value === "" || zipCode.value == null){
-        alert("Zip Code value cannot be empty!");
+        warning.innerHTML = "Zip Code value cannot be empty!"
+        warning.style.color = "#FF0000";
+        
     }
     else{
-        
+        warning.innerHTML = ""
         getWeatherData(zipCode.value,baseURL, apiKey).then((result)=>{checkApi(result)});
         
     }
@@ -41,9 +44,11 @@ function check(){
 
 function checkApi(ApiResult){
     if(ApiResult.cod != 200){
-        alert("Wrong Zip Code");
+        warning.innerHTML = "Zip Code is not right!."
+        warning.style.color = "#FF0000";
     }
     else{
+        warning.innerHTML = ""
         postData("/add",ApiResult).then(()=>updateUI("/get"));
     }
 }
@@ -98,10 +103,38 @@ const updateUI =async (url)=>{
     try{
         const allData = await req.json();
         // Write updated data to DOM elements
-        document.getElementById('weather__entry__temp').innerHTML = Math.round(allData.temp)+ 'degrees';
-        document.getElementById('weather__entry__content').innerHTML = allData.feel;
-        document.getElementById("weather__entry__date").innerHTML =allData.date;
+        document.querySelector('.weather__entry__city').innerHTML = `Weather in <em>${allData.city} , ${allData.country}</em>`;
+        document.querySelector('.weather__entry__temp').innerHTML = `Temperature:  <em>${Math.round(convert(allData.temp)) } &deg;</em>`;
+        document.querySelector('.weather__entry__description').innerHTML =`Weather Status: <em>${allData.weather}</em>`;
+        document.querySelector('.weather__entry__wind').innerHTML =`Wind Speed: <em>${allData.wind}</em>`;
+        document.querySelector(".weather__entry__date").innerHTML =`Date of Today: <em>${allData.date}</em>`;
+        document.querySelector(".weather__entry__content").innerHTML =`Content: <em>${allData.feel}</em>`;
+
+        DrawMap(allData.lat,allData.lon);
+
     }catch(error){
         console.log("error", error);
     }
 }
+
+// Map Draw function
+function DrawMap (lat,lon){
+        map.off();
+        // Map
+        map.setView([lat,lon], 13);
+        // Creating a Layer object
+        let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+        // Adding layer to the map
+        map.addLayer(layer);
+}
+
+// Celsius Converter function
+
+function convert(tempDegree){
+    
+    return (tempDegree-32)/18; 
+
+}
+
+
+
