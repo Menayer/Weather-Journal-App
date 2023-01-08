@@ -40,7 +40,7 @@ Languages used for this project
  - ###### JavaScript
 
 ---
- ## Environment & APIs
+ ## Environment
 Environment and libraries used for this project
  - ###### Node
  - ###### Express
