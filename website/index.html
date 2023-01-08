@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Journal App | FWD</title>
     <link rel="icon" type="image/x-icon" href="cloudy.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Leaf js style file -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <!-- Main Style file -->
     <link rel="stylesheet" href="style.css">
   </head>
   <body class="weather__app">
@@ -17,20 +21,25 @@
 
       <div class="card">
         <h1>Weather Journal | FWD</h1>
-
         <div class="card__search">
+          <!-- Element to collect zip code input -->
           <input type="text" class="card__search__input" placeholder="Enter Zip code here ex:99950" id="zip">
+          <!-- Element to display Warning Message -->
           <small class="card__search__input__warning" id="warning"></small>
-          <input type="text" class="card__search__input" placeholder="How are you feeling today?" id="feelings">
+          <!-- Element to collect feeling input -->
+          <textarea type="text" class="card__search__input" placeholder="How are you feeling today?" id="feelings" rows="2" cols="20"></textarea>
+          <!-- Submit button -->
           <button class="generate" id="generate"><span class="generate__text">Search</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1" viewBox="0 0 48 48" enable-background="new 0 0 48 48" height="1em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><g fill="#616161"><rect x="34.6" y="28.1" transform="matrix(.707 -.707 .707 .707 -15.154 36.586)" width="4" height="17"></rect><circle cx="20" cy="20" r="16"></circle></g><rect x="36.2" y="32.1" transform="matrix(.707 -.707 .707 .707 -15.839 38.239)" fill="#37474F" width="4" height="12.3"></rect><circle fill="#64B5F6" cx="20" cy="20" r="13"></circle><path fill="#BBDEFB" d="M26.9,14.2c-1.7-2-4.2-3.2-6.9-3.2s-5.2,1.2-6.9,3.2c-0.4,0.4-0.3,1.1,0.1,1.4c0.4,0.4,1.1,0.3,1.4-0.1 C16,13.9,17.9,13,20,13s4,0.9,5.4,2.5c0.2,0.2,0.5,0.4,0.8,0.4c0.2,0,0.5-0.1,0.6-0.2C27.2,15.3,27.2,14.6,26.9,14.2z"></path></svg></button>
         </div>
-        <div class="weather__entry">
-          <h3 class="weather__entry__city"></h3>
-          <h5 class="weather__entry__temp"></h5>
-          <h5 class="weather__entry__description"></h5>
-          <h5 class="weather__entry__wind"></h5>
-          <h5 class="weather__entry__date"><span></span></h5>
-          <h5 class="weather__entry__content"></h5>
+        <div class="weather__entry" id="entryHolder">
+          <!-- Weather results -->
+          <h3 class="weather__entry__city" id="city"></h3>
+          <h5 class="weather__entry__temp" id="temp"></h5>
+          <h5 class="weather__entry__description" id="description"></h5>
+          <h5 class="weather__entry__wind" id="wind"></h5>
+          <h5 class="weather__entry__date" id="date"><span></span></h5>
+          <h5 class="weather__entry__content" id="content"></h5>
+          <!-- Map Div -->
           <div id="map"></div>
       </div>
     </main>

@@ -44,7 +44,7 @@
     margin:0.5em;
     border-radius:5px;
     border:none;
-    width:20em;
+    width:18em;
     height:3em;
     outline:none;
     background:rgba(124, 124, 124, 0.3);
@@ -64,6 +64,6 @@ em{
     color:#2692FF
 }
 
-input::placeholder {
+input::placeholder,textarea::placeholder {
     font-size: 16px;
 }

@@ -45,6 +45,7 @@ Environment and libraries used for this project
  - ###### Node
  - ###### Express
  - ###### OpenWeatherMap API
+ - ###### Leaf JS
 
 
  ----
@@ -59,11 +60,10 @@ You can clone the project to your pc by using the following command
 or you can download as Zip file from Code button in my repo
 
 ## Development
-- To be written.
-- To be written.
-- In JavaScript i've done the following:
+- Replaced the default HTML and CSS files with my own style.
+- Build the server.js file and the routes inside it.
+- Build the JavaScript to accept user input and query the zip code using the api and set the back result to the UI elements.
 
-    * To be written.
 
 
 ## References
