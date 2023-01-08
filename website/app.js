@@ -1,6 +1,6 @@
 /* Open weather API Key and URL */
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-const apiKey = '&appid=c53a1aac5d03808910b79fd36db6a826';
+const apiKey = '&appid=c53a1aac5d03808910b79fd36db6a826&units=imperial';
 
 // Create a new date instance  & initiate Leaf map
 let d = new Date();
@@ -121,7 +121,7 @@ function DrawMap (lat,lon){
 
 // Celsius Converter function
 function convert(tempDegree){
-    return (tempDegree-32)/18; 
+    return (tempDegree-32)/1.8; 
 }
 
 
