@@ -46,6 +46,7 @@ Environment and libraries used for this project
  - ###### Express
  - ###### OpenWeatherMap API
  - ###### Leaf JS
+ - ###### Unsplash API
 
 
  ----
@@ -60,7 +61,7 @@ You can clone the project to your pc by using the following command
 or you can download as Zip file from Code button in my repo
 
 ## Development
-- Replaced the default HTML and CSS files with my own style.
+- Replaced the default HTML and CSS files with my own style and random background using unsplash.com API.
 - Build the server.js file and the routes inside it.
 - Build the JavaScript to accept user input and query the zip code using the api and set the back result to the UI elements.
 
